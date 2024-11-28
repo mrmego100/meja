@@ -19,3 +19,51 @@ self.addEventListener('fetch', event => {
         })
     );
 });
+
+// عند تفعيل الـ service worker
+self.addEventListener('activate', function(event) {
+    console.log('Service Worker activated');
+});
+
+// استقبال إشعارات Push
+self.addEventListener('push', function(event) {
+    // تأكد من وجود بيانات للإشعار
+    const notificationData = event.data ? event.data.text() : 'You have a new notification!';
+    
+    const options = {
+        body: notificationData,
+        icon: '/images/notification-icon.png',
+        badge: '/images/badge.png',
+        actions: [
+            {
+                action: 'open',
+                title: 'Open App',
+                icon: '/images/notification-icon.png'
+            }
+        ]
+    };
+
+    // عرض الإشعار للمستخدم
+    event.waitUntil(
+        self.registration.showNotification('New Notification', options)
+    );
+});
+
+// التعامل مع نقر المستخدم على الإشعار
+self.addEventListener('notificationclick', function(event) {
+    event.notification.close(); // إغلاق الإشعار عند النقر عليه
+
+    // فتح التطبيق عند النقر على الإشعار
+    event.waitUntil(
+        clients.openWindow('https://your-website-url.com') // قم بتغيير الرابط إلى رابط تطبيقك
+    );
+});
+
+// التعامل مع الإشعارات في وضع عدم الاتصال (Offline)
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
+        })
+    );
+});
