@@ -23,11 +23,15 @@
             "src": "https://wallpaperaccess.com/full/2918041.jpg",
             "sizes": "1280x720",
             "type": "image/png"
+            "form_factor": "wide"
+
         },
         {
             "src": "https://wallpaperaccess.com/full/2918041.jpg",
             "sizes": "1280x720",
             "type": "image/png"
+            "form_factor": "wide"
+
         }
     ]
 }
