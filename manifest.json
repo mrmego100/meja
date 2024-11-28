@@ -1,0 +1,37 @@
+{
+    "name": "ddd",
+    "short_name": "sasasa",
+    "start_url": "https://www.megafrp.com/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2196f3",
+    "categories": ["blog", "education", "lifestyle"],
+    "icons": [
+        {
+            "src": "https://assets.berty.tech/files/favicon_berty--android-chrome-192x192_hu825b5c7b003d952812a2935e86ca290e_6997_192x0_resize_box_2.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://incoalliance.com/wp-content/uploads/2019/01/cropped-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "https://wallpaperaccess.com/full/2918041.jpg",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+
+        },
+        {
+            "src": "https://wallpaperaccess.com/full/2918041.jpg",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+
+        }
+    ]
+}
