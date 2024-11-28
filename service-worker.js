@@ -32,13 +32,13 @@ self.addEventListener('push', function(event) {
     
     const options = {
         body: notificationData,
-        icon: '/images/notification-icon.png',
-        badge: '/images/badge.png',
+        icon: 'https://cdn3.iconfinder.com/data/icons/shinysocialball/512/Facebook_512x512.png',
+        badge: 'https://www.i2clipart.com/cliparts/9/4/e/c/clipart-home-icon-512x512-94ec.png',
         actions: [
             {
                 action: 'open',
                 title: 'Open App',
-                icon: '/images/notification-icon.png'
+                icon: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/B_icon_512x512.jpg'
             }
         ]
     };
@@ -55,7 +55,7 @@ self.addEventListener('notificationclick', function(event) {
 
     // فتح التطبيق عند النقر على الإشعار
     event.waitUntil(
-        clients.openWindow('https://your-website-url.com') // قم بتغيير الرابط إلى رابط تطبيقك
+        clients.openWindow('https://www.megafrp.com/') // قم بتغيير الرابط إلى رابط تطبيقك
     );
 });
 
