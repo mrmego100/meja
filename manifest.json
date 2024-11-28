@@ -21,14 +21,14 @@
     "screenshots": [
         {
             "src": "https://samples-files.com/samples/images/png/1280-720-sample.png",
-            "sizes": "2500x720",
+            "sizes": "1280x720",
             "type": "image/png",
             "form_factor": "wide"
 
         },
         {
             "src": "https://www.veeforu.com/wp-content/uploads/2023/06/1280-x-720-sky-blue-youtube-thumbnail-background.png",
-            "sizes": "2500x720",
+            "sizes": "1280x720",
             "type": "image/png",
             "form_factor": "wide"
 
