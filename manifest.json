@@ -1,5 +1,5 @@
 {
-  "name": "إشعارات PWA",
+  "name": "تطبيقي PWA",
   "short_name": "PWA",
   "start_url": "/",
   "display": "standalone",
@@ -7,12 +7,12 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Hsm-icon-192x192.png",
+      "src": "icon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://xmple.com/wallpaper/black-glow-hexagon-white-purple-gradient-512x512-c4-000000-ffffff-8a2be2-000000-l2-10-132-a-15-f-6.svg",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
