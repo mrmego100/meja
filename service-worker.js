@@ -1,28 +1,23 @@
 self.addEventListener("install", event => {
+    console.log("✅ Service Worker تم التثبيت!");
     self.skipWaiting();
 });
 
 self.addEventListener("activate", event => {
-    clients.claim();
+    console.log("🚀 Service Worker مفعل!");
 });
 
-// ✅ دالة إرسال الإشعارات كل 10 ثوانٍ
-function sendNotification() {
-    self.registration.showNotification("🔔 إشعار جديد", {
-        body: "انقر هنا لفتح التطبيق!",
-        icon: "icon.png",
-        tag: "notification-loop"
+self.addEventListener("push", event => {
+    self.registration.showNotification("🔔 إشعار مستمر!", {
+        body: "📢 هذا إشعار يتم إرساله حتى بعد مغادرة الموقع!",
+        icon: "https://via.placeholder.com/100"
     });
-
-    setTimeout(sendNotification, 10000); // كل 10 ثوانٍ
-}
-
-// ✅ تشغيل الإشعارات تلقائيًا عند تفعيل الـ Service Worker
-self.addEventListener("activate", event => {
-    event.waitUntil(
-        new Promise(resolve => {
-            sendNotification();
-            resolve();
-        })
-    );
 });
+
+// إرسال إشعارات تلقائية كل 30 ثانية
+setInterval(() => {
+    self.registration.showNotification("🔔 إشعار تلقائي!", {
+        body: "📢 لازلت تتلقى الإشعارات حتى لو أغلقت المتصفح!",
+        icon: "https://via.placeholder.com/100"
+    });
+}, 30000);
