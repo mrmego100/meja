@@ -1,40 +1,28 @@
-self.addEventListener("install", (event) => {
+self.addEventListener("install", event => {
     self.skipWaiting();
 });
 
-self.addEventListener("activate", (event) => {
-    console.log("✅ Service Worker Activated!");
+self.addEventListener("activate", event => {
+    clients.claim();
 });
 
-self.addEventListener("push", (event) => {
-    const options = {
-        body: "اضغط هنا لفتح التطبيق!",
-        icon: "/icon.png",
-        badge: "/icon.png",
-        vibrate: [200, 100, 200],
-        data: { url: "/" }
-    };
-
-    event.waitUntil(
-        self.registration.showNotification("🔔 إشعار جديد!", options)
-    );
-});
-
-self.addEventListener("notificationclick", (event) => {
-    event.notification.close();
-    event.waitUntil(
-        clients.openWindow(event.notification.data.url)
-    );
-});
-
-// تشغيل الإشعارات تلقائياً كل 10 ثوانٍ
-setInterval(() => {
-    self.registration.showNotification("🔔 إشعار جديد!", {
-        body: "اضغط هنا لفتح التطبيق!",
-        icon: "/icon.png",
-        badge: "/icon.png",
-        vibrate: [200, 100, 200],
-        data: { url: "/"
-        }
+// ✅ دالة إرسال الإشعارات كل 10 ثوانٍ
+function sendNotification() {
+    self.registration.showNotification("🔔 إشعار جديد", {
+        body: "انقر هنا لفتح التطبيق!",
+        icon: "icon.png",
+        tag: "notification-loop"
     });
-}, 10000);
+
+    setTimeout(sendNotification, 10000); // كل 10 ثوانٍ
+}
+
+// ✅ تشغيل الإشعارات تلقائيًا عند تفعيل الـ Service Worker
+self.addEventListener("activate", event => {
+    event.waitUntil(
+        new Promise(resolve => {
+            sendNotification();
+            resolve();
+        })
+    );
+});
